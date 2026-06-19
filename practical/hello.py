@@ -1,0 +1,1 @@
+print("dobro jutro življenje, lahko noč negativa")
