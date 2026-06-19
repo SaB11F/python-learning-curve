@@ -6,6 +6,8 @@ code lives in [`../practical/`](../practical/).
 
 ## Convention
 
+- Notes are grouped by **source** in a subfolder — e.g. course notes live in
+  [`We3Schools/`](We3Schools/). Only W3Schools material goes in there.
 - One numbered doc per **major topic** (a major title in the W3Schools menu).
 - Files are named `NNN-topic-name.md`, numbered in the order I learn them —
   like ADRs (`001`, `002`, `003`, …).
@@ -31,4 +33,4 @@ code lives in [`../practical/`](../practical/).
 
 | #   | Topic                            | Notes                              |
 | --- | -------------------------------- | ---------------------------------- |
-| 001 | [Python Intro](001-python-intro.md) | What Python is and how it runs |
+| 001 | [Python Intro](We3Schools/001-python-intro.md) | What Python is and how it runs |

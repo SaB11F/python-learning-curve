@@ -37,7 +37,7 @@
 print("Hello, World!")
 ```
 
-My own first program in [`../practical/hello.py`](../practical/hello.py):
+My own first program in [`../../practical/hello.py`](../../practical/hello.py):
 
 ```python
 print("dobro jutro življenje, lahko noč negativa")
@@ -54,7 +54,7 @@ print("dobro jutro življenje, lahko noč negativa")
 
 ## Practice
 
-- [`../practical/hello.py`](../practical/hello.py) — first `print()` statement.
+- [`../../practical/hello.py`](../../practical/hello.py) — first `print()` statement.
 
 ## Takeaways
 
