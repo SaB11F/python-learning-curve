@@ -34,3 +34,5 @@ code lives in [`../practical/`](../practical/).
 | #   | Topic                            | Notes                              |
 | --- | -------------------------------- | ---------------------------------- |
 | 001 | [Python Intro](We3Schools/001-python-intro.md) | What Python is and how it runs |
+| 002 | [Python Syntax](We3Schools/002-python-syntax.md) | Indentation, variables, comments |
+| 003 | [Python Statements](We3Schools/003-python-statements.md) | Simple vs compound statements |
