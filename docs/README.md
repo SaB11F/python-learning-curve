@@ -6,11 +6,12 @@ code lives in [`../practical/`](../practical/).
 
 ## Convention
 
-- Notes are grouped by **source** in a subfolder — e.g. course notes live in
-  [`We3Schools/`](We3Schools/). Only W3Schools material goes in there.
-- One numbered doc per **major topic** (a major title in the W3Schools menu).
-- Files are named `NNN-topic-name.md`, numbered in the order I learn them —
-  like ADRs (`001`, `002`, `003`, …).
+- Notes are grouped by **source** in a subfolder:
+  [`We3Schools/`](We3Schools/) for W3Schools, [`CS50P/`](CS50P/) for the Harvard
+  course.
+- One numbered doc per **major topic**. W3Schools docs are numbered in learning
+  order (`001`, `002`, …); CS50P docs mirror the course's own lecture numbers
+  (`00`, `01`, … `09`).
 - Numbers never change once assigned, so the history stays stable.
 - Each doc follows the same template (see below).
 
@@ -31,8 +32,14 @@ code lives in [`../practical/`](../practical/).
 
 ## Index
 
+### W3Schools
 | #   | Topic                            | Notes                              |
 | --- | -------------------------------- | ---------------------------------- |
 | 001 | [Python Intro](We3Schools/001-python-intro.md) | What Python is and how it runs |
 | 002 | [Python Syntax](We3Schools/002-python-syntax.md) | Indentation, variables, comments |
-| 003 | [Python Statements](We3Schools/003-python-statements.md) | Simple vs compound statements |
+| 003 | [Python Statements](We3Schools/003-python-statements.md) | Statements, run order, optional semicolons |
+
+### CS50P (Harvard)
+| #  | Lecture                          | Notes                              |
+| -- | -------------------------------- | ---------------------------------- |
+| 00 | [Functions, Variables](CS50P/00-functions-variables.md) | Day 1 — functions, types, f-strings |
