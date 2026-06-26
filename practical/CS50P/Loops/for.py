@@ -28,10 +28,13 @@ print("Malica\n" * 3, end="")
 
 #Imamo še par zanimivih načinov iz  We3Schools, ki znajo bit uporabni
 
-#dobesedno zgleda kot da i dobi vrednost določenega seznama - ni isto kot v c++ ko si mogo izpisat iz seznama vrednost i fruits[i]
 fruits = ["banana","pomaranča","marelica"]      
 for i in fruits:
     print(i)
+
+#mamo tudi len()
+for i in range(len(fruits)):
+    print(fruits[i])
 
 #loop skozi string
 
