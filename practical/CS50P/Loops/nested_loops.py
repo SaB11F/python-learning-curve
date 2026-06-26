@@ -13,4 +13,3 @@ for i in range(len(list)):
     print(list[i])
 
 #to je bubble sort algo s pomočjo katerega sortiramo, je ez način za prikaz nested loopov
-
