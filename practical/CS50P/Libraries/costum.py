@@ -1,5 +1,4 @@
-import say
-
+from say import hello
 ime = "Rene"
 
-say.hello(ime)
+hello(ime)
