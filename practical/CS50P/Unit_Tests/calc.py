@@ -3,7 +3,7 @@ def main():
     print("x na kvadrat je ", calc(x))
 
 def calc(n):
-    return n + n
+    return n * n
 
 if __name__ == "__main__":
     main()
