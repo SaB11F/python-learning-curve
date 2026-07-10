@@ -19,6 +19,7 @@ def test_wrong_deposit():
     a = Account(100)
     with pytest.raises(ValueError):
         a.deposit(-5)
+    with pytest.raises(ValueError):
         a.deposit(0)
     
     with pytest.raises(TypeError):
@@ -33,8 +34,11 @@ def test_wrong_withdraw():
     a = Account(100)
     with pytest.raises(ValueError):
         a.withdraw(0)
+    with pytest.raises(ValueError):
         a.withdraw(-5)
+    with pytest.raises(ValueError):
         a.withdraw(9999)
+    with pytest.raises(TypeError):
         a.withdraw("abc")
 
 #ker Account nima setter funkcije, je smiselno, da uporabnik
