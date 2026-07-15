@@ -1,5 +1,6 @@
 from account import Account
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
+from CoinFlip import CoinFlip
 
 #SIMPLE MENU
 def menu(uporabnik):
@@ -28,7 +29,34 @@ def menu(uporabnik):
                     print(e)
             case 3:
                 #Gamble it away
-                print("in dev")
+                try:
+                    igra = CoinFlip(uporabnik)
+                    amount = Decimal(input("Buy in amount:"))
+
+                    while True:
+                        side = str(input("Heads or Tails:"))
+                        side = side.lower()
+                        if side not in ("heads", "tails"):
+                            print("Fallse input")
+                        else:
+                            break
+
+                    coin, won, nagrada = igra.play(amount, side)
+
+                    print(f"Toss: {coin}")
+
+                    if won == True:
+                        print(f"You won {nagrada}")
+                    elif won == False:
+                        print(f"GG go next")
+
+                except ValueError as e:
+                    print(e)
+                except InvalidOperation:
+                    print("that is not a number")
+
+                print(f"Trenutno stanje: {uporabnik.balance}")
+
             case _:
                 print("za vse ostalo")
 
