@@ -2,6 +2,7 @@ from account import Account
 from decimal import Decimal, InvalidOperation
 from CoinFlip import CoinFlip
 from Dice import Dice
+from Suit import Suit
 
 def play_game(game):
     possibilities = game.describe_choices()
@@ -44,7 +45,7 @@ def play_game(game):
 #SIMPLE MENU
 def menu(uporabnik):
     try:
-        print("0=quit, 1=deposit, 2=withdraw, 3=CoinFlip, 4=Dice")
+        print("0=quit, 1=deposit, 2=withdraw, 3=CoinFlip, 4=Dice, 5=Cards")
         x = int(input("Vpiši x:"))
 
         match x:
@@ -71,6 +72,9 @@ def menu(uporabnik):
                 play_game(igra)
             case 4:
                 igra = Dice(uporabnik)
+                play_game(igra)
+            case 5:
+                igra = Suit(uporabnik)
                 play_game(igra)
             case _:
                 print("za vse ostalo")

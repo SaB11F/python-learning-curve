@@ -3,11 +3,11 @@ from Game import Game
 import random
 
 class CoinFlip(Game):
-    valid_choices = ("heads", "tails")
-    
+    valid_choices = ["heads", "tails"]
+
     def __init__(self, account, payout=2):
         super().__init__(account, payout)
 
     def generate(self):
-        obrat = random.choice(["heads", "tails"])
+        obrat = random.choice(self.valid_choices)
         return obrat
