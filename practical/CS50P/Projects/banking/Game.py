@@ -29,5 +29,13 @@ class Game(ABC):
         return (machine, won, nagrada)
     
     @property
-    @abstractmethod
-    def valid_choice():
+    @abstractmethod             #vody never runs, to he point, moremo ga overwriteat
+    def valid_choices(self):
+        ...                     #elipsis, basicly empty place holder
+
+    def describe_choices(self):
+        parts = []
+        for i in self.valid_choices:
+            parts.append(str(i))
+
+        return "/".join(parts)

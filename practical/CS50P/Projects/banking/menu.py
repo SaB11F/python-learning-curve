@@ -3,10 +3,48 @@ from decimal import Decimal, InvalidOperation
 from CoinFlip import CoinFlip
 from Dice import Dice
 
+def play_game(game):
+    possibilities = game.describe_choices()
+
+    print(f"Choose {possibilities}:")
+
+    lookup = {}
+
+    for i in game.valid_choices:
+        key = str(i).lower()
+        lookup[key] = i
+
+    while True:
+        bet = input("What u bet on:").strip().lower()
+        if bet not in lookup:
+            print("Fallse input")
+        else:
+            input_value = lookup[bet]
+            break
+
+    try:
+        amount = Decimal(input("Buy in amount:"))
+
+        outcome, won, nagrada = game.play(amount, input_value)
+
+        print(f"Result: {outcome}")
+
+        if won == True:
+            print(f"You won {nagrada}")
+        elif won == False:
+            print(f"GG go next")
+
+    except ValueError as e:
+        print(e)
+    except InvalidOperation:
+        print("this is not a number")
+
+    print(f"Trenutno stanje: {game.account.balance}")
+
 #SIMPLE MENU
 def menu(uporabnik):
     try:
-        print("0=quit, 1=deposit, 2=withdraw, 3=gamble, 4=Dice")
+        print("0=quit, 1=deposit, 2=withdraw, 3=CoinFlip, 4=Dice")
         x = int(input("Vpiši x:"))
 
         match x:
@@ -29,64 +67,11 @@ def menu(uporabnik):
                 except ValueError as e:
                     print(e)
             case 3:
-                #Gamble it away
-                try:
-                    igra = CoinFlip(uporabnik)
-                    amount = Decimal(input("Buy in amount:"))
-
-                    while True:
-                        side = str(input("Heads or Tails:"))
-                        side = side.lower()
-                        if side not in ("heads", "tails"):
-                            print("Fallse input")
-                        else:
-                            break
-
-                    coin, won, nagrada = igra.play(amount, side)
-
-                    print(f"Toss: {coin}")
-
-                    if won == True:
-                        print(f"You won {nagrada}")
-                    elif won == False:
-                        print(f"GG go next")
-
-                except ValueError as e:
-                    print(e)
-                except InvalidOperation:
-                    print("that is not a number")
-
-                print(f"Trenutno stanje: {uporabnik.balance}")
-
+                igra = CoinFlip(uporabnik)
+                play_game(igra)
             case 4:
-                #dice
-                try:
-                    igra = Dice(uporabnik)
-                    amount = Decimal(input("Buy in amount:"))
-
-                    while True:
-                        num = int(input("Insert a number from one to six:"))
-                        if num not in range(1,7):
-                            print("false input")
-                        else:
-                            break
-
-                    dice, won, nagrada = igra.play(amount, num)
-                    
-                    print(f"Dice Toss: {dice}")
-
-                    if won == True:
-                        print(f"You won {nagrada}")
-                    elif won == False:
-                        print(f"GG go next")
-
-                except ValueError as e:
-                    print(e)
-                except InvalidOperation:
-                    print("that is not a number")
-
-                print(f"Trenutno stanje: {uporabnik.balance}")
-
+                igra = Dice(uporabnik)
+                play_game(igra)
             case _:
                 print("za vse ostalo")
 
