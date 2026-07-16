@@ -6,7 +6,7 @@ from Dice import Dice
 #SIMPLE MENU
 def menu(uporabnik):
     try:
-        print("0=quit, 1=deposit, 2=withdraw, 3=gamble")
+        print("0=quit, 1=deposit, 2=withdraw, 3=gamble, 4=Dice")
         x = int(input("Vpiši x:"))
 
         match x:
@@ -42,7 +42,7 @@ def menu(uporabnik):
                         else:
                             break
 
-                    coin, won, nagrada = igra.generate(amount, side)
+                    coin, won, nagrada = igra.play(amount, side)
 
                     print(f"Toss: {coin}")
 
@@ -66,12 +66,12 @@ def menu(uporabnik):
 
                     while True:
                         num = int(input("Insert a number from one to six:"))
-                        if num != 1 or 2 or 3 or 4 or 5 or 6:
+                        if num not in range(1,7):
                             print("false input")
                         else:
                             break
 
-                    dice, won, nagrada = igra.generate(amount, num)
+                    dice, won, nagrada = igra.play(amount, num)
                     
                     print(f"Dice Toss: {dice}")
 

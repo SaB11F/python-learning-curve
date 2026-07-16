@@ -1,13 +1,15 @@
 from account import Account
+from abc import ABC, abstractmethod
 import random
 
-class Game():
-    def __init__(self, account, payout=2):
+class Game(ABC):
+    def __init__(self, account, payout):
         self.account = account
         self.payout = payout
 
+    @abstractmethod
     def generate(self):
-        return NotImplementedError
+        raise NotImplementedError
     
     def play(self, amount, side):
         #take the bet
@@ -25,3 +27,7 @@ class Game():
             won = False
 
         return (machine, won, nagrada)
+    
+    @property
+    @abstractmethod
+    def valid_choice():
