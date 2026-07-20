@@ -3,8 +3,9 @@ from decimal import Decimal, InvalidOperation
 from CoinFlip import CoinFlip
 from Dice import Dice
 from Suit import Suit
+from Game import Game
 
-def play_game(game):
+def play_game(game:Game) -> None:
     possibilities = game.describe_choices()
 
     print(f"Choose {possibilities}:")
@@ -43,7 +44,7 @@ def play_game(game):
     print(f"Trenutno stanje: {game.account.balance}")
 
 #SIMPLE MENU
-def menu(uporabnik):
+def menu(uporabnik: Account) -> bool | None:
     try:
         print("0=quit, 1=deposit, 2=withdraw, 3=CoinFlip, 4=Dice, 5=Cards")
         x = int(input("Vpiši x:"))
@@ -68,7 +69,7 @@ def menu(uporabnik):
                 except ValueError as e:
                     print(e)
             case 3:
-                igra = CoinFlip(uporabnik)
+                igra:Game = CoinFlip(uporabnik)
                 play_game(igra)
             case 4:
                 igra = Dice(uporabnik)
@@ -81,3 +82,5 @@ def menu(uporabnik):
 
     except ValueError:
         print(f" is not an integer")
+
+    return False

@@ -1,17 +1,21 @@
 from account import Account
 from abc import ABC, abstractmethod
 import random
+from decimal import Decimal
+
+#če je lahko za abstract mmethod tudi kakšen drugi abstract parameter
+#lahko bi uporabo attrs
 
 class Game(ABC):
-    def __init__(self, account, payout):
+    def __init__(self, account : Account, payout: int) -> None:
         self.account = account
         self.payout = payout
 
     @abstractmethod
-    def generate(self):
-        raise NotImplementedError
+    def generate(self) -> str | int:
+        ...
     
-    def play(self, amount, side):
+    def play(self, amount:Decimal, side:str | int) -> tuple[str | int, bool, Decimal | None]:
         #take the bet
         
         self.account.withdraw(amount)
@@ -30,10 +34,10 @@ class Game(ABC):
     
     @property
     @abstractmethod             #vody never runs, to he point, moremo ga overwriteat
-    def valid_choices(self):
+    def valid_choices(self) -> tuple[str, ...] | tuple[int, ...]:
         ...                     #elipsis, basicly empty place holder
 
-    def describe_choices(self):
+    def describe_choices(self) -> str:
         parts = []
         for i in self.valid_choices:
             parts.append(str(i))
